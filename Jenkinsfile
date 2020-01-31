@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build...'
-                sh './build.sh'
+                script{
+                    echo 'Build...'
+                    sh './build.sh ${env.BRANCH_NAME}'
+                }
             }
         }
     }
