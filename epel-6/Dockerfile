@@ -28,3 +28,5 @@ RUN scl enable python27 'pip install -U pip setuptools'
 RUN scl enable python27 'pip install mock httmock coverage tox requests pytest'
 RUN scl enable rh-python36 'pip install -U pip setuptools'
 RUN scl enable rh-python36 'pip install mock httmock coverage tox requests pytest'
+RUN echo 'jenkins ALL=NOPASSWD:/etc/init.d/mongod' > /etc/sudoers && \
+    su - jenkins rpmdev-setuptree
